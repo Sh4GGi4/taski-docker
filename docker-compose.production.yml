@@ -9,20 +9,20 @@ services:
     volumes:
       - pg_data_production:/var/lib/postgresql/data
   backend:
-    image: USERNAME/taski_backend
+    image: sh4ggi4/taski_backend
     env_file: .env
     depends_on:
       - db
     volumes:
       - static_volume:/backend_static
   frontend:
-    image: USERNAME/taski_frontend
+    image: sh4ggi4/taski_frontend
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static_volume:/frontend_static
   gateway:
-    image: USERNAME/taski_gateway
+    image: sh4ggi4/taski_gateway
     env_file: .env
     depends_on:
       - backend
